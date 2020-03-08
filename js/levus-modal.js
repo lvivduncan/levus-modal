@@ -1,46 +1,25 @@
-//
+/**
+ * 
+ * @param {*} el -- елемент, на якому клікають
+ * @param {*} content -- блок, який має з'являтися по кліку
+ */
+function levusModal(el,content){
+  const element = document.querySelector(el);
 
-class LevusModal{
-  // приймає 2 параметра -- елемент, на якому клікають і блок, який має відкритися
-  constructor(el,listen){
-    this.el = document.querySelector(el);
-    this.listen = listen;
-  }
-
-  click(){
-    this.el.addEventListener('click', _ => {
-
-      const div = document.createElement('div');
-      div.append(this.listen);
-      div.setAttribute('id', 'levus-modal');
-      document.body.append(div);
-
-    });
-  }
-
-}
-
-
-
-/* 
-function LevusModal(el,block){
-  this.el = el;
-  this.block = block;
-
-  // елемент, на який будуть клікати
-  const element = document.querySelector(this.el);
-
-  // елемент, який має зявлятися, коли на нього клікають
   const div = document.createElement('div');
-  div.append(this.block);
-  div.setAttribute('id', 'id-modal');
-  document.body.append(div);
+  div.append(content);
+  div.setAttribute('style', 'position: absolute; top: calc(50% - 50px); right: calc(50% - 50px); bottom: calc(50% - 50px); left: calc(50% - 50px); width: 100px; height: 100px; background: red; color: white; padding: 10px;');
 
   element.addEventListener('click', _ => {
-    
+    document.body.appendChild(div);
+    document.body.style.backgroundColor = 'rgba(0,0,0,0.3)';
   });
+
+  setTimeout( _ => {
+    document.body.removeAttribute('style');
+    div.remove();
+  }, 3000);
+
 }
- */
 
-
-(new LevusModal('#button', 'text')).click();
+levusModal('#button', 'test click');

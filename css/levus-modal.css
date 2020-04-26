@@ -1,6 +1,37 @@
 
+.levus-body{
+  overflow: hidden;
+  background: rgba(0,0,0,0.3);
+  position: absolute;
+  top:0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
 
-#button{
+.levus-modal{
+  display: none;
+}
+.levus-modal.active{
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border: 5px solid black;
+  background: white;
   padding: 10px;
-  color: red;
+  border-radius: 10px;
+}
+
+
+/**/
+
+#button,
+#button2{
+  padding: 10px;
+  color: white;
+  background: green;
+  display: inline-block;
+  cursor: pointer;
 }

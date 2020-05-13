@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> levus-modal </title>
   <link rel="stylesheet" href="css/levus-modal.css">
 </head>
+
 <body>
-  
+
   <div id="button">
     test 1
   </div>
@@ -22,9 +24,17 @@
 
   <div id="hidden2" class="levus-modal">
     <p>Hidden 2</p>
-    <p>Вікно можна закрити за допомогою хрестика у верхньому правому куті, або ж натиснувши кнопку "Ескейп" (Esc)</p> 
+    <p>Вікно можна закрити за допомогою хрестика у верхньому правому куті, або ж натиснувши кнопку "Ескейп" (Esc)</p>
   </div>
 
-  <script src="js/levus-modal.js"></script>
+  <script src="js/levus-modal.min.js"></script>
+  <script>
+    // тест 1
+    levusModal('#button', '#hidden');
+
+    // тест 2
+    levusModal('#button2', '#hidden2');
+  </script>
 </body>
+
 </html>

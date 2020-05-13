@@ -39,9 +39,3 @@ function levusModal(clickElement,hiddenElement){
     }
   });
 }
-
-// тест 1
-levusModal('#button', '#hidden');
-
-// тест 2
-levusModal('#button2', '#hidden2');

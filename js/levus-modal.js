@@ -4,37 +4,40 @@
   2 -- контент, який має бути показано
 */
 
-// todo: кнопка "закрити" і закриття при натискання на "ескейп"
-
-function levusModal(el,hidden){
+function levusModal(clickElement,hiddenElement){
   // елемент, на який клікають
-  const element = document.querySelector(el);
+  const element = document.querySelector(clickElement);
 
   // контент, який має бути показаний після кліку
-  const content = document.querySelector(hidden);
+  const content = document.querySelector(hiddenElement);
 
   // створюємо кнопку для закриття модального вікна
   const close = document.createElement('div');
   close.classList.add('levus-close');
-
-  document.addEventListener('DOMContentLoaded', _ => {
-    document.body.append(close);
-  });
+  document.body.append(close);
   
   // відкриваємо вікно
   element.addEventListener('click', _ => {
-    content.classList = 'levus-modal active';
-    document.body.classList = 'levus-body';
+    content.classList.add('active');
+    document.body.classList.add('levus-body');
     close.classList.add('active');
   });
 
   // закриваємо вікно
   close.addEventListener('click', _ => {
-    content.classList = 'levus-modal';
-    document.body.classList = '';
+    content.classList.remove('active');
+    document.body.removeAttribute('class');
     close.classList.remove('active');
   });
 
+  // закриваємо натиснувши на кнопку "ескейп"
+  document.addEventListener('keyup', e => {
+    if(e.key === "Escape" || e.keyCode === 'Escape') {
+      content.classList.remove('active');
+      document.body.removeAttribute('class');
+      close.classList.remove('active');
+    }
+  });
 }
 
 // тест 1

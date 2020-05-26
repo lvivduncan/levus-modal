@@ -1,21 +1,21 @@
 /* фіксуємо батьківський елемент */
 .levus-body {
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.3);
   position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  top: -20px;
+  left: -20px;
+  bottom: -20px;
+  right: -20px;
 }
 
 .levus-body::after{
   content: '';
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
+  background: rgba(0, 0, 0, 0.3);
   z-index: 9997;
 }
 
@@ -27,7 +27,7 @@
 /* активний клас для модального елемента */
 .levus-modal.active {
   display: block;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -74,6 +74,10 @@
 }
 
 /* тести */
+body{
+  height: 2000px;
+}
+
 #button,
 #button2 {
   padding: 10px;
@@ -81,4 +85,14 @@
   background: green;
   display: inline-block;
   cursor: pointer;
+  position: fixed;
+  left: 20px;
+}
+
+#button{
+  top: 20px;
+}
+
+#button2 {
+  top: 60px;
 }

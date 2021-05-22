@@ -10,31 +10,28 @@
 
 <body>
 
-  <div id="button">
+  <div id="button" class="levus-modal" data-link="hidden">
     test 1
   </div>
-  <div id="hidden" class="levus-modal">
+
+  <div id="button2" class="levus-modal" data-link="hidden2">
+    test 2
+  </div>
+
+  <div id="hidden" class="levus-hidden-modal">
     <h1>Hidden 1</h1>
     <p>Вікно можна закрити за допомогою хрестика у верхньому правому куті, або ж натиснувши кнопку "Ескейп" (Esc)</p>
   </div>
 
-  <div id="button2">
-    test 2
-  </div>
-
-  <div id="hidden2" class="levus-modal">
+  <div id="hidden2" class="levus-hidden-modal">
     <p>Hidden 2</p>
     <p>Вікно можна закрити за допомогою хрестика у верхньому правому куті, або ж натиснувши кнопку "Ескейп" (Esc)</p>
   </div>
 
-  <script src="js/levus-modal.min.js"></script>
-  <script>
-    // тест 1
-    levusModal('#button', '#hidden');
+  <div style="height: 2000px;"></div>
 
-    // тест 2
-    levusModal('#button2', '#hidden2');
-  </script>
+  <script src="js/levus-modal.js"></script>
+
 </body>
 
 </html>

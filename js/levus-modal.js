@@ -1,41 +1,38 @@
-/*
-  2 параметри:
-  1 -- елемент, на який клікають, 
-  2 -- контент, який має бути показано
-*/
+const wrapper = document.createElement('div');
+wrapper.setAttribute('id', 'levus-wrapper');
 
-function levusModal(clickElement,hiddenElement){
-  // елемент, на який клікають
-  const element = document.querySelector(clickElement);
+document.querySelectorAll('.levus-modal').forEach(item => {
+    item.addEventListener('click', function(e){
+        e.preventDefault();
 
-  // контент, який має бути показаний після кліку
-  const content = document.querySelector(hiddenElement);
+        const link = this.dataset.link;
 
-  // створюємо кнопку для закриття модального вікна
-  const close = document.createElement('div');
-  close.classList.add('levus-close');
-  document.body.append(close);
-  
-  // відкриваємо вікно
-  element.addEventListener('click', _ => {
-    content.classList.add('active');
-    document.body.classList.add('levus-body');
-    close.classList.add('active');
-  });
+        document.querySelectorAll('.levus-hidden-modal').forEach(elems => elems.classList.remove('active'));
 
-  // закриваємо вікно
-  close.addEventListener('click', _ => {
-    content.classList.remove('active');
-    document.body.removeAttribute('class');
-    close.classList.remove('active');
-  });
+        const viewport = window.innerHeight;
 
-  // закриваємо натиснувши на кнопку "ескейп"
-  document.addEventListener('keyup', e => {
-    if(e.key === "Escape" || e.keyCode === 'Escape') {
-      content.classList.remove('active');
-      document.body.removeAttribute('class');
-      close.classList.remove('active');
+        document.getElementById(link).classList.add('active');
+        document.getElementById(link).style.top = `${viewport/2-60}px`;
+        
+        // todo: window.innerHeight - document.documentElement.scrollHeight
+        document.querySelector('body').classList.add('lock');
+        document.querySelector('body').append(wrapper);
+
+    });
+});
+
+wrapper.addEventListener('click', function(){
+    closeModal();
+});
+
+document.addEventListener('keydown', e => {
+    if(e.code == 'Escape' && e.key == 'Escape'){
+        closeModal();
     }
-  });
+});
+
+function closeModal(){
+    document.querySelectorAll('.levus-hidden-modal').forEach(item => item.classList.remove('active'));
+    document.querySelector('body').classList.remove('lock');
+    wrapper.remove();
 }

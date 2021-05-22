@@ -1,98 +1,61 @@
-/* фіксуємо батьківський елемент */
-.levus-body {
-  overflow: hidden;
-  position: absolute;
-  top: -20px;
-  left: -20px;
-  bottom: -20px;
-  right: -20px;
+*,::after,::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-.levus-body::after{
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 9997;
-}
-
-/* клас для модального елемента */
-.levus-modal {
-  display: none;
-}
-
-/* активний клас для модального елемента */
-.levus-modal.active {
-  display: block;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  box-shadow: 0 0 10px rgba(0,0,0,.3);
-  padding: 10px;
-  z-index: 9998;
-}
-
-/* кнопка для закриття */
-.levus-close {
-  display: none;
-  height: 30px;
-  width: 30px;
-  border-radius: 30px;
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  z-index: 9999;
-  cursor: pointer;
-}
-
-.levus-close::after,
-.levus-close::before {
-  content: '';
-  height: 3px;
-  width: 30px;
-  background: #000;
-  position: absolute;
-  top: 15px;
-  left: 0;
-}
-
-.levus-close::after {
-  transform: rotate(50deg);
-}
-
-.levus-close::before {
-  transform: rotate(-50deg);
-}
-
-.levus-close.active {
-  display: block;
-}
-
-/* тести */
+/* for example*/
 body{
-  height: 2000px;
+    padding: 100px;
+}
+.levus-modal{
+    position: fixed;
+    top: 100px;
+    left: 50px;
+    display: inline-block;
+    padding: 10px;
+    background: green;
+    color: whitesmoke;
+    cursor: pointer
 }
 
-#button,
-#button2 {
-  padding: 10px;
-  color: white;
-  background: green;
-  display: inline-block;
-  cursor: pointer;
-  position: fixed;
-  left: 20px;
+.levus-modal:first-child{
+    top: 50px;
+}
+/* for example*/
+
+.levus-hidden-modal{
+    display: none;
+
+    position: fixed;
+    top: 0;
+    left: calc(50% - 150px);
+    bottom: 0;
+    right: 0;
+    z-index: 3;
+
+    width: 300px;
+    height: 120px;
+    padding: 10px;
+    background: black;
+    color: white;
 }
 
-#button{
-  top: 20px;
+.levus-hidden-modal.active{
+    display: block;
 }
 
-#button2 {
-  top: 60px;
+#levus-wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;  
+}
+
+body.lock{
+    overflow: hidden;
+    padding-right: 6px;
+    width: calc(100% - 6px)
 }

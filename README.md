@@ -1,7 +1,6 @@
-js modal
+# js modal
 
 demo: https://lvivduncan.github.io/levus-modal/
 
-#button -- елемент, на який клікають, #hidden -- елемент, який буде показано
-
-levusModal('#button', '#hidden');
+- елемент, на який клікнули, повинен мати клас ".levus-modal" і дата-атрибут "link" з назвою ID (без символа #)
+- елемент, який має з'явитися, повинен мати ID

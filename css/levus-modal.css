@@ -54,6 +54,27 @@ body{
     z-index: 2;  
 }
 
+#levus-wrapper::before{
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: black;
+    z-index: 5;
+}
+
+#levus-wrapper::after {
+    content: '\274C';
+    position: fixed;
+    top: -2px;
+    right: 1px;
+    color: white;
+    z-index: 6;
+    font-size: 26px;
+}
+
 body.lock{
     overflow: hidden;
     padding-right: 6px;
